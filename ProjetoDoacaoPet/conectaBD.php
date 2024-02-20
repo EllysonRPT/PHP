@@ -1,21 +1,21 @@
 <?php
 // endereco
 // nome do BD
-// usuario
+// admin
 // senha
 $endereco = 'localhost';
-$banco = 'postgres';
-$usuario = 'postgres';
+$banco = 'ellyson';
+$admin = 'postgres';
 $senha = 'postgres';
 try {
 // sgbd:host;port;dbname
-// usuario
+// admin
 // senha
 // errmode
-$pdo = new PDO("pgsql:host=$endereco;port=5432;dbname=$banco", $usuario, $senha,
+$pdo = new PDO("pgsql:host=$endereco;port=5432;dbname=$banco", $admin, $senha,
 [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
 echo "Conectado no banco de dados!!!";
-$sql = "CREATE TABLE IF NOT EXISTS USUARIO (NOME VARCHAR(255),EMAIL VARCHAR(255) PRIMARY KEY,TELEFONE VARCHAR(255),DATA_NASCIMENTO VARCHAR(255),SENHA VARCHAR(255))";
+$sql = "CREATE TABLE IF NOT EXISTS USUARIOS (NOME VARCHAR(255),EMAIL VARCHAR(255) PRIMARY KEY,TELEFONE VARCHAR(255),DATA_NASCIMENTO VARCHAR(255),SENHA VARCHAR(255))";
 $pdo->exec($sql);
 
 } catch (PDOException $e) {
