@@ -14,6 +14,7 @@
             <a href="/">Home</a>
             <a href="/produtos">Produto</a>
             <a href="/contato">Contato</a>
+            <a href="/cadastro">cadastro</a>
         </div>
     </nav>
 </header>
