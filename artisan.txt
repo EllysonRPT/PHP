@@ -1,0 +1,27 @@
+composer create-project --prefer-dist laravel/laravel meu-primeiro-projeto-laravel
+
+php artisan migrate 
+php artisan key:generate
+php artisan serve
+php artisan list
+php artisan make:controller UserController
+php artisan make:model User
+php artisan make:migration create_users_table
+php artisan make:seeder UserSeeder
+php artisan make:factory UserFactory
+php artisan make:middleware VerClima
+php artisan make:model Produto -m
+php artisan make:controller ProdutoController --resource
+php artisan db:seed
+php artsan key: generate
+
+composer require laravel/ui
+ php artisan ui bootstrap --auth
+npm install  
+npx npm install  
+
+
+
+home,produto,contato
+footer,header
+criar routes
