@@ -14,6 +14,7 @@ php artisan make:model Produto -m
 php artisan make:controller ProdutoController --resource
 php artisan db:seed
 php artsan key: generate
+composer install
 
 composer require laravel/ui
  php artisan ui bootstrap --auth
