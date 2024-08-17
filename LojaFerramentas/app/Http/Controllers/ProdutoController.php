@@ -85,4 +85,8 @@ class ProdutoController extends Controller
                          ->with('success', 'Produto Deletado com Sucesso.');
 
     }
+
+    public function show(Produto $produto){
+        return view('produtos.show',compact('produto'));
+    }
 }

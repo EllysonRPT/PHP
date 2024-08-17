@@ -2,21 +2,28 @@
 
 
 @section('content')
-<br><br><br>
-<div class='container'>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+<div class="container">
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($produtos as $index => $produto)
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <img src="/assets/img/img0.png" class="d-block w-100" alt="{{ $produto->nome }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ $produto->nome }}</h5>
+                        <p>{{ $produto->descricao }}</p>
+                        <p>Preço: R$ {{ $produto->preco }}</p>
+                    </div>
+                </div>
             @endforeach
-        </ul>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-@endif
-
-<a href="/login"><h2>Login</h2></a>
-<br>
-<a href="/registro"><h2>Registro</h2></a>
 </div>
-
 @endsection

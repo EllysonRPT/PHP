@@ -44,12 +44,17 @@
                 <label for="quantidade">Quantidade:</label>
                 <input type="number" name="quantidade" class="form-control" placeholder="Quantidade">
             </div>
-
-
+            
             <div class="form-group">
                 <label for="preco">Preço:</label>
                 <input type="text" name="preco" class="form-control" placeholder="Preço">
             </div>
+            
+            
+            {{-- <div class="form-group">
+                <label for="img">Imagem:</label>
+                <input type="file" name="img" class="form-control" placeholder="img">
+            </div> --}}
 
 
             <button type="submit" class="btn btn-primary">Enviar</button>

@@ -16,7 +16,7 @@ php artisan db:seed
 php artsan key: generate
 composer install
 
-composer require laravel/ui
+composer require laravel/ui	
  php artisan ui bootstrap --auth
 npm install  
 npx npm install  
