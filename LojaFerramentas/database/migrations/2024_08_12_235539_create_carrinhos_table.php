@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_produto')->constrained('produtos')->onDelete('cascade');
             $table->foreignId('id_user')->constrained('users')->onDelete('cascade');
             $table->integer('quantidade');
-            $table->enum('status', ['aberto','fechado'])->default('Aberto');
+            $table->enum('status', ['aberto','fechado'])->default('aberto');
             $table->timestamps();
         });
     }

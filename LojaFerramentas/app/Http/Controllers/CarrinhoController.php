@@ -15,7 +15,7 @@ public function add(Request $request,Produto $produto) {
         'quantidade' =>'required|numeric|min:1'
     ]) ;
     Carrinho::create(['id_produto'=>$produto->id,
-                     'id_user'=>Auth::user()->id,
+                     'id_user'=>Auth::id(),
                       'quantidade'=>$request->quantidade]);
 
 return redirect()->route('produtos.show',$produto)->with('success','Produto adicionado ao Carrinho');
