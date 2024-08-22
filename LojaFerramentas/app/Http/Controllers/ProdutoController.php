@@ -14,9 +14,7 @@ class ProdutoController extends Controller
         $produtos = Produto::all();
         return view('produtos.index', compact('produtos'));
     }
-    /**
-     * Show the form for creating a new resource.
-     */
+   
     public function create()
     {
         return view('produtos.create');

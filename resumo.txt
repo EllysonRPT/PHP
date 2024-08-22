@@ -1,0 +1,4 @@
+farmaceutico-> crud de remedio ->
+cliente-> inscreve->compra
+sistema de autentcação 
+sistema de cadastramento
