@@ -2,7 +2,16 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-
+            <li class="dropdown">
+                <a href="#">Outros</a>
+                <ul class="dropdown-content">
+                    <li><a href="/contato">Contato</a></li>
+                    <li><a href="/sobre">Sobre</a></li>
+                    <li><a href="/ajuda">Ajuda</a></li>
+        
+                </ul>
+            </li>
+          
             @if (Auth::check())
             <li class="static-info">
                 <span class="info-item">NOME: {{ Auth::user()->name }}</span>
@@ -14,7 +23,7 @@
                     <ul class="dropdown-content">
                         @if (Auth::user()->isAdmin())
                             <li><a href="/produtos"> Produtos CRUD</a></li>
-                            <li><a href="/dashboard"> Visualizar</a></li>
+                            {{-- <li><a href="/dashboard"> Visualizar</a></li> --}}
 
                         @endif
                         <li>
@@ -41,4 +50,5 @@
             @endif
         </ul>
     </nav>
+    
 </header>

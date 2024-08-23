@@ -6,7 +6,7 @@
         <div class="carousel-inner">
             @foreach ($produtos as $index => $produto)
                 <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                    <img src="/assets/img/foto1.png" class="d-block w-100" alt="{{ $produto->nome }}">
+                    <img src="/assets/img/foto1.jpg" class="d-block w-100" alt="Imagem estática">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>{{ $produto->nome }}</h5>
                         <p>{{ $produto->descricao }}</p>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,16 @@ use App\Http\Middleware\ProdutosMiddleware;
 // Route::get('/', function () {
     //     return view('home'); // Página inicial, onde pode estar o formulário de registro
     // });
+
+// web.php
+Route::post('/contato', [ContatoController::class, 'submit'])->name('contato.submit');
+
+Route::get('/sobre', function () {
+        return view('sobre'); // Página inicial, onde pode estar o formulário de registro
+    });
+Route::get('/ajuda', function () {
+        return view('ajuda'); // Página inicial, onde pode estar o formulário de registro
+    });
     Route::get('', [HomeController::class,'index'])->name('home');
     
 Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('user.registro');//showRegistroForm

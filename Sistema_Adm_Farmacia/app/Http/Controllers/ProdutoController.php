@@ -17,27 +17,35 @@ class ProdutoController extends Controller
         return view('produtos.create');
     }
     public function store(Request $request)
-    {
-        $messages = [
-            'nome.required' => 'O campo nome é obrigatório.',
-            'nome.unique' => 'O  nome já existe.',
-            'preco.numeric' => 'Apenas Número',
-            'quantidade.numeric' => 'Apenas Número',
-        ];
+{
+    $messages = [
+        'nome.required' => 'O campo nome é obrigatório.',
+        'nome.unique' => 'O nome já existe.',
+        'preco.numeric' => 'Apenas Número',
+        'quantidade.numeric' => 'Apenas Número',
+    ];
 
-        $request->validate([
+    $request->validate([
+        'nome' => 'required|string|unique:produtos',
+        'descricao' => 'required|max:510',
+        'categoria' => 'required|string',
+        'preco' => 'required|numeric',
+        'quantidade' => 'required|numeric',
+        'img' => 'nullable|image|max:2048', // Validação da imagem
+    ]);
 
-            'nome' => 'required|string|unique:produtos',
-            'descricao' => 'required|max:510',
-            'categoria' => 'required|string',
-            'preco' => 'required|numeric',
-            'quantidade' => 'required|numeric',
-
-        ]);
-        Produto::create($request->all());
-        return redirect()->route('produtos.index')
-            ->with('success', 'Remedio Adicionado com sucesso');
+    // Processando o upload da imagem
+    if ($request->hasFile('img')) {
+        $imageName = time().'.'.$request->img->extension();
+        $request->img->move(public_path('images'), $imageName);
+        $request['img'] = $imageName; // Armazenando o nome da imagem no request
     }
+
+    Produto::create($request->all());
+    return redirect()->route('produtos.index')
+        ->with('success', 'Remédio Adicionado com sucesso');
+}
+
     public function edit(Produto $produto)
     {
         return view('produtos.edit', compact('produto'));
