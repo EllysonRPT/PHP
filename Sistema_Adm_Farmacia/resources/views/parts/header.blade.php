@@ -5,7 +5,6 @@
             <li class="dropdown">
                 <a href="#">Outros</a>
                 <ul class="dropdown-content">
-                    <li><a href="/contato">Contato</a></li>
                     <li><a href="/sobre">Sobre</a></li>
                     <li><a href="/ajuda">Ajuda</a></li>
         
@@ -23,6 +22,8 @@
                     <ul class="dropdown-content">
                         @if (Auth::user()->isAdmin())
                             <li><a href="/produtos"> Produtos CRUD</a></li>
+                            <li><a href="/manual"> Manual</a></li>
+
                             {{-- <li><a href="/dashboard"> Visualizar</a></li> --}}
 
                         @endif

@@ -1,51 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-5">
-    <h1 class="my-4">Ajuda e Suporte</h1>
-
-    <p>Bem-vindo à seção de ajuda da nossa farmácia. Aqui você encontrará informações úteis para ajudá-lo a usar nosso sistema de maneira eficiente.</p>
-
-    <h2 class="my-3">Como Cadastrar um Novo Produto</h2>
-    <p>Para cadastrar um novo produto em nosso sistema, siga os passos abaixo:</p>
-    <ol>
-        <li>Acesse o painel de administração.</li>
-        <li>Clique em "Criar Novo Produto".</li>
-        <li>Preencha os campos necessários como nome, descrição, categoria, quantidade e preço.</li>
-        <li>Carregue uma imagem do produto se desejar.</li>
-        <li>Finalize clicando em "Enviar".</li>
-    </ol>
-
-    <h2 class="my-3">Como Editar um Produto Existente</h2>
-    <p>Para editar um produto já cadastrado:</p>
-    <ol>
-        <li>No painel de administração, vá até a lista de produtos.</li>
-        <li>Encontre o produto que deseja editar e clique em "Editar".</li>
-        <li>Atualize as informações conforme necessário.</li>
-        <li>Salve as alterações clicando em "Enviar".</li>
-    </ol>
-
-    <h2 class="my-3">Como Adicionar Produtos ao Carrinho</h2>
-    <p>Para adicionar um produto ao carrinho:</p>
-    <ol>
-        <li>Encontre o produto desejado na lista de produtos.</li>
-        <li>Selecione a quantidade e clique em "Adicionar ao Carrinho".</li>
-    </ol>
-
-    <h2 class="my-3">Como Entrar em Contato Conosco</h2>
-    <p>Se você tiver dúvidas ou precisar de suporte adicional, você pode:</p>
-    <ol>
-        <li>Acessar a página de contato através do menu principal.</li>
-        <li>Preencher o formulário com seu nome, email e mensagem.</li>
-        <li>Clicar em "Enviar" para nos enviar sua mensagem.</li>
-    </ol>
-
-    <h2 class="my-3">Dúvidas Frequentes</h2>
-    <p>Confira as perguntas mais frequentes abaixo:</p>
-    <ul>
-        <li><strong>Como recuperar minha senha?</strong> - Clique em "Esqueceu a Senha" na página de login e siga as instruções.</li>
-        <li><strong>Posso atualizar minhas informações pessoais?</strong> - Sim, você pode atualizar suas informações no painel de usuário.</li>
-    </ul>
+<div class="user-container">
+    <h1 class="user-title">Manual do Usuário</h1>
+    
+    <p class="user-description">
+        Bem-vindo ao manual do usuário. Aqui você encontrará todas as informações necessárias para usar nosso sistema de forma eficiente e aproveitar ao máximo nossas funcionalidades.
+    </p>
+    
+    <h2 class="user-subtitle">Como Cadastrar-se</h2>
+    <p class="user-description">
+        Para criar uma conta, clique em "Cadastrar" na página inicial e preencha o formulário com suas informações pessoais. Após o cadastro, você receberá um e-mail de confirmação com instruções para ativar sua conta.
+    </p>
+    
+    <h2 class="user-subtitle">Como Realizar uma Compra</h2>
+    <p class="user-description">
+        Navegue até a seção de produtos e adicione os itens desejados ao carrinho. Quando estiver pronto para finalizar a compra, clique em "Finalizar Compra", revise seu pedido e escolha um método de pagamento. Após confirmar, você receberá um e-mail com os detalhes do pedido.
+    </p>
+    
+    <h2 class="user-subtitle">Como Consultar Informações</h2>
+    <p class="user-description">
+        Você pode consultar suas compras anteriores e verificar o status de pedidos na seção "Minha Conta". Também é possível visualizar informações sobre produtos e descontos em nossa página de ofertas.
+    </p>
+    
+    <h2 class="user-subtitle">Suporte e Contato</h2>
+    <p class="user-description">
+        Se precisar de ajuda, entre em contato com nosso suporte através do e-mail <a href="mailto:support@farmacia.com">support@farmacia.com</a> ou ligue para nosso número de suporte: (11) 1234-5678. Estamos aqui para ajudar!
+    </p>
 </div>
 @endsection
-    

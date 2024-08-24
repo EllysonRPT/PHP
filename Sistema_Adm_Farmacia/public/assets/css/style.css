@@ -1,10 +1,10 @@
 /* Estilo geral do corpo da página */
 body {
-    font-family: Arial, sans-serif; /* Fonte padrão */
-    margin: 0; /* Remove margens padrão */
+    font-family: Arial, sans-serif; /* Define a fonte padrão */
+    margin-top: 100px; /* Espaço acima do corpo para acomodar o header fixo */
     padding: 0;
-    box-sizing: border-box; /* Inclui padding e border na largura e altura */
-    min-height: 100vh; /* Garante que o corpo ocupe no mínimo a altura total da tela */
+    box-sizing: border-box; /* Inclui padding e border na largura e altura do elemento */
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura total da tela */
     display: flex;
     flex-direction: column; /* Layout em coluna, com o conteúdo abaixo do header */
 }
@@ -14,10 +14,10 @@ header {
     background-color: #4CAF50; /* Cor de fundo verde */
     padding: 10px 20px; /* Espaçamento interno */
     position: fixed; /* Fixa o header no topo */
-    width: 100%; /* Ocupa toda a largura */
+    width: 100%; /* Ocupa toda a largura da página */
     top: 0; /* Alinha ao topo */
     left: 0; /* Alinha à esquerda */
-    z-index: 1000; /* Mantém o header acima do conteúdo */
+    z-index: 1000; /* Garante que o header fique acima de outros elementos */
 }
 
 /* Estilo do menu de navegação no header */
@@ -26,14 +26,14 @@ header nav ul {
     margin: 0;
     padding: 0;
     display: flex; /* Exibe os itens lado a lado */
-    justify-content: space-around; /* Distribui igualmente os itens */
+    justify-content: space-around; /* Distribui os itens igualmente */
 }
 
 header nav ul li a {
-    color: white; /* Cor do texto branco */
-    text-decoration: none; /* Remove sublinhado */
+    color: white; /* Cor do texto dos links */
+    text-decoration: none; /* Remove sublinhado dos links */
     padding: 10px 20px; /* Espaçamento interno dos links */
-    display: block; /* Cada link ocupa toda a área do item */
+    display: block; /* Cada link ocupa toda a área do item da lista */
 }
 
 header nav ul li a:hover {
@@ -42,16 +42,16 @@ header nav ul li a:hover {
 
 /* Estilo do menu dropdown */
 header nav ul li .dropdown-content {
-    display: none; /* Esconde o menu por padrão */
-    position: absolute; /* Posição relativa ao pai */
-    background-color: #4cacaf; /* Fundo verde */
-    min-width: 160px; /* Largura mínima */
-    z-index: 1001; /* Fica acima de outros elementos */
+    display: none; /* Esconde o dropdown por padrão */
+    position: absolute; /* Posiciona o dropdown relativo ao item pai */
+    background-color: #4cacaf; /* Cor de fundo do dropdown */
+    min-width: 160px; /* Largura mínima do dropdown */
+    z-index: 1001; /* Garante que o dropdown fique acima de outros elementos */
     list-style: none; /* Remove marcadores de lista */
     padding: 0;
 }
 
-/* Exibe o dropdown ao passar o mouse */
+/* Exibe o dropdown ao passar o mouse sobre o item pai */
 header nav ul li.dropdown:hover .dropdown-content {
     display: block;
 }
@@ -67,16 +67,29 @@ main {
 /* Estilo do container centralizado */
 .container {
     max-width: 1200px; /* Largura máxima do container */
-    margin: 0 auto; /* Centraliza o container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
     padding: 20px; /* Espaçamento interno */
-    background-color: #f9f9f9; /* Fundo cinza claro */
+    background-color: #f9f9f9; /* Cor de fundo cinza claro */
     border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do container */
+}
+
+/* Estilo do carrossel */
+.carousel-inner {
+    position: relative;
+    width: 100%; /* Ocupa toda a largura do container */
+    height: 400px; /* Define a altura fixa do carrossel */
+}
+
+.carousel-inner img {
+    object-fit: cover; /* Ajusta a imagem para preencher o container sem distorcer */
+    height: 100%; /* Define a altura igual ao container do carrossel */
+    width: 100%; /* Define a largura igual ao container do carrossel */
 }
 
 /* Estilo do rodapé */
-/* Estilo do rodapé */
 footer {
+    margin-top: 50px;
     background-color: #31576d; /* Cor de fundo verde */
     color: white; /* Texto branco */
     text-align: center; /* Alinha o texto ao centro */
@@ -116,7 +129,6 @@ footer nav ul li a:hover {
     color: #333; /* Cor do texto ao passar o mouse */
 }
 
-
 /* Estilo para exibir os itens da info do usuário em linhas separadas */
 .static-info .info-item {
     display: block; /* Cada item ocupa uma linha separada */
@@ -125,25 +137,158 @@ footer nav ul li a:hover {
 
 /* Estilo para a página "Sobre a Farmácia" */
 .about-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+    max-width: 800px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 20px; /* Espaçamento interno */
     background-color: #f4f4f4; /* Cor de fundo suave */
-    border-radius: 10px;
+    border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
 }
 
 .about-title {
-    font-size: 32px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+    font-size: 32px; /* Tamanho da fonte para o título */
+    color: #333; /* Cor do texto do título */
+    text-align: center; /* Alinha o texto ao centro */
+    margin-bottom: 20px; /* Espaço abaixo do título */
 }
 
 .about-description {
-    font-size: 18px;
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
+    font-size: 18px; /* Tamanho da fonte para a descrição */
+    color: #555; /* Cor do texto da descrição */
+    line-height: 1.6; /* Altura da linha para melhorar a legibilidade */
+    margin-bottom: 20px; /* Espaço abaixo da descrição */
+    text-align: justify; /* Justifica o texto */
+}
+
+/* Estilo para a seção de promoções */
+.promotion-section {
+    margin-top: 20px; /* Espaço acima da seção de promoções */
+}
+
+.promotion-section h2 {
+    font-size: 28px; /* Tamanho da fonte para o título da seção */
+    color: #333; /* Cor do texto do título */
+    text-align: center; /* Alinha o texto ao centro */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.promotion-items {
+    display: flex; /* Exibe os itens lado a lado */
+    flex-wrap: wrap; /* Permite quebra de linha dos itens */
+    justify-content: space-around; /* Distribui os itens igualmente */
+}
+
+.promotion-item {
+    background-color: #f4f4f4; /* Cor de fundo dos itens de promoção */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor dos itens */
+    padding: 15px; /* Espaçamento interno dos itens */
+    margin: 10px; /* Espaço ao redor dos itens */
+    text-align: center; /* Alinha o texto ao centro */
+    width: 250px; /* Largura fixa dos itens */
+}
+
+.promotion-item img {
+    width: 100%; /* Imagem ocupa toda a largura do item */
+    height: auto; /* Altura da imagem ajustada automaticamente */
+    border-radius: 4px; /* Bordas arredondadas da imagem */
+}
+
+.promotion-item h3 {
+    font-size: 20px; /* Tamanho da fonte para o nome do medicamento */
+    margin: 10px 0; /* Espaço acima e abaixo do nome do medicamento */
+}
+
+.promotion-item .price {
+    font-size: 18px; /* Tamanho da fonte para o preço */
+    color: #e74c3c; /* Cor para destacar o preço */
+}
+
+/* Estilo para a página "Manual do Farmacêutico" */
+.pharmacist-container {
+    max-width: 900px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo branca */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.pharmacist-title {
+    font-size: 32px; /* Tamanho da fonte para o título */
+    color: #333; /* Cor do texto do título */
+    text-align: center; /* Alinha o texto ao centro */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.pharmacist-description {
+    font-size: 18px; /* Tamanho da fonte para a descrição */
+    color: #555; /* Cor do texto da descrição */
+    line-height: 1.6; /* Altura da linha para melhorar a legibilidade */
+    margin-bottom: 20px; /* Espaço abaixo da descrição */
+}
+
+.pharmacist-subtitle {
+    font-size: 24px; /* Tamanho da fonte para os subtítulos */
+    color: #333; /* Cor do texto dos subtítulos */
+    margin-top: 20px; /* Espaço acima dos subtítulos */
+    margin-bottom: 10px; /* Espaço abaixo dos subtítulos */
+}
+
+.pharmacist-features {
+    list-style: disc; /* Marcadores de lista */
+    margin-left: 20px; /* Espaço à esquerda dos itens da lista */
+}
+
+.pharmacist-features li {
+    margin-bottom: 10px; /* Espaço abaixo de cada item da lista */
+}
+
+.pharmacist-description a {
+    color: #4CAF50; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+.pharmacist-description a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+/* Estilo para a página "Manual do Usuário" */
+.user-container {
+    max-width: 900px; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o container horizontalmente */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #ffffff; /* Cor de fundo branca */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.user-title {
+    font-size: 32px; /* Tamanho da fonte para o título */
+    color: #333; /* Cor do texto do título */
+    text-align: center; /* Alinha o texto ao centro */
+    margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+.user-description {
+    font-size: 18px; /* Tamanho da fonte para a descrição */
+    color: #555; /* Cor do texto da descrição */
+    line-height: 1.6; /* Altura da linha para melhorar a legibilidade */
+    margin-bottom: 20px; /* Espaço abaixo da descrição */
+}
+
+.user-subtitle {
+    font-size: 24px; /* Tamanho da fonte para os subtítulos */
+    color: #333; /* Cor do texto dos subtítulos */
+    margin-top: 20px; /* Espaço acima dos subtítulos */
+    margin-bottom: 10px; /* Espaço abaixo dos subtítulos */
+}
+
+.user-description a {
+    color: #4CAF50; /* Cor do link */
+    text-decoration: none; /* Remove sublinhado do link */
+}
+
+.user-description a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
 }

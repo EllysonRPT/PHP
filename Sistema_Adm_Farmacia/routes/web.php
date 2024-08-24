@@ -15,10 +15,11 @@ use App\Http\Middleware\ProdutosMiddleware;
     // });
 
 // web.php
-Route::post('/contato', [ContatoController::class, 'submit'])->name('contato.submit');
 
-Route::get('/sobre', function () {
-        return view('sobre'); // Página inicial, onde pode estar o formulário de registro
+
+Route::get('/manual', function () {return view('manual'); // Página inicial, onde pode estar o formulário de registro
+    });
+Route::get('/sobre', function () {return view('sobre'); // Página inicial, onde pode estar o formulário de registro
     });
 Route::get('/ajuda', function () {
         return view('ajuda'); // Página inicial, onde pode estar o formulário de registro
