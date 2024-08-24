@@ -15,7 +15,8 @@
         @foreach ($produtos as $produto)
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="{{ asset('img/' . $produto->img) }}" class="img-fluid" alt="{{ $produto->nome }}">
+                    <img src="/assets/img/foto1.jpg" class="w-100 carousel-img" alt="">
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $produto->nome }}</h5>
                         <p class="card-text">{{ $produto->descricao }}</p>

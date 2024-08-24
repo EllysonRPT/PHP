@@ -9,56 +9,55 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Middleware\ProdutosMiddleware;
 
+// Página do manual de usuário
+Route::get('/manual', function () {
+    return view('manual');
+});
 
-// Route::get('/', function () {
-    //     return view('home'); // Página inicial, onde pode estar o formulário de registro
-    // });
+// Página sobre a farmácia
+Route::get('/sobre', function () {
+    return view('sobre');
+});
 
-// web.php
-
-
-Route::get('/manual', function () {return view('manual'); // Página inicial, onde pode estar o formulário de registro
-    });
-Route::get('/sobre', function () {return view('sobre'); // Página inicial, onde pode estar o formulário de registro
-    });
+// Página de ajuda
 Route::get('/ajuda', function () {
-        return view('ajuda'); // Página inicial, onde pode estar o formulário de registro
-    });
-    Route::get('', [HomeController::class,'index'])->name('home');
-    
-Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('user.registro');//showRegistroForm
+    return view('ajuda');
+});
 
+// Página inicial, onde exibe os produtos destacados
+Route::get('', [HomeController::class, 'index'])->name('home');
 
+// Formulário para exibição do registro de usuário
+Route::get('/registro', [UserController::class, 'showRegistroForm'])->name('user.registro');
 
-Route::post('/registro', [UserController::class, 'registro'])->name('user.register');// Rota para processar o registro
+// Rota para processar o registro de novo usuário
+Route::post('/registro', [UserController::class, 'registro'])->name('user.register');
 
+// Formulário para exibição do login
+Route::get('/login', [UserController::class, 'showLoginForm'])->name('user.login');
 
-Route::get('/login', [UserController::class, 'showLoginForm'])->// Rota para exibir o formulário de login
-name('user.login');
+// Rota para processar o login do usuário
+Route::post('/login', [UserController::class, 'login'])->name('user.login');
 
-// Rota para processar o login
-Route::post('/login', [UserController::class, 'login'])->
-name('user.login');
-// Rota para logout
+// Rota para o logout do usuário
 Route::post('/logout', [UserController::class, 'logout'])->name('user.logout');
 
+// Dashboard do usuário, protegido por autenticação
+Route::get('/dashboard', [DashboardController::class, 'index'])
+    ->middleware('auth')
+    ->name('dashboard');
 
+// Rotas para CRUD de produtos, usando ProdutoController
+Route::resource('produtos', ProdutoController::class)
+    ->middleware(ProdutosMiddleware::class)
+    ->except('show');
 
-// Rota para o dashboard, protegida por autenticação
-Route::get('/dashboard',[DashboardController::class,'index'])
-->middleware('auth')->name('dashboard');
-
-
-//routa p/ produtos
-Route::resource('produtos', ProdutoController::class)->middleware(ProdutosMiddleware::class)->except('show');
-
-//visualização de um produto especifico
-//visualização de um produto especifico
+// Rota para visualização de um produto específico, protegida por autenticação
 Route::get('produtos/{produto}', [ProdutoController::class, 'show'])
-->middleware('auth')->name('produtos.show');
+    ->middleware('auth')
+    ->name('produtos.show');
 
-
-//rota para adicionar produto no carrinho
-Route::post('carrinho/add/{produto}',[CarrinhoController::class,'add'])
-->middleware('auth')->name('carrinho.add');
-
+// Rota para adicionar produto ao carrinho, protegida por autenticação
+Route::post('carrinho/add/{produto}', [CarrinhoController::class, 'add'])
+    ->middleware('auth')
+    ->name('carrinho.add');

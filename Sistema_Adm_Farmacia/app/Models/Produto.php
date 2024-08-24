@@ -9,12 +9,13 @@ class Produto extends Model
 {
     use HasFactory;
 
-    protected $fillable =[
-        'nome',
-        'descricao',
-        'categoria',
-        'preco',
-        'quantidade',
-        'img'
+    // Define os atributos que podem ser preenchidos em massa
+    protected $fillable = [
+        'nome',        // Nome do produto
+        'descricao',   // Descrição do produto
+        'categoria',   // Categoria do produto
+        'preco',       // Preço do produto
+        'quantidade',  // Quantidade disponível do produto
+        'img'          // Nome da imagem do produto
     ];
 }
